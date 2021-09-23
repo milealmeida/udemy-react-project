@@ -11,7 +11,13 @@ function App() {
 
   const [arrary, setArray] = useState(['1', '2', '3']);
 
-  const [objects, setObjects] = useState({ name: 'lion' }); 
+  const [objects, setObjects] = useState([
+    { id: 1,name: 'lion' },
+    { id: 2,name: 'tiger' },
+    { id: 3,name: 'fish' },
+    { id: 4,name: 'bird' },
+    { id: 5,name: 'spaceship' },
+  ]); 
 
   return (
     <div className="App">
@@ -35,6 +41,13 @@ function App() {
       )}
 
       { onlyTrue && (<div> It is really true </div> ) }
+
+      <div>
+        {objects.map(({id, name}) => (
+            <div key={id}>{name}</div>
+          )
+        )}
+      </div>
     </div>
   );
 }
