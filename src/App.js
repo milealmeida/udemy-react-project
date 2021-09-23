@@ -19,6 +19,10 @@ function App() {
     { id: 5,name: 'spaceship' },
   ]); 
 
+  const filteredArray = () => {
+    console.log(objects.filter( ({name}) => name !== 'lion' ));
+  }
+
   return (
     <div className="App">
       Name: {name}
@@ -48,6 +52,9 @@ function App() {
           )
         )}
       </div>
+
+      <button onClick={filteredArray}>Filter Array</button>
+
     </div>
   );
 }
