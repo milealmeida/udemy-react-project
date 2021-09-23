@@ -24,6 +24,14 @@ function App() {
         value={name}
         onChange={ e => setName(e.target.value) } 
       />
+
+      <button onClick={ () =>  setIsDifficult(!isDifficult) }>Change Difficult</button>
+
+      {isDifficult ? (
+        <div> It's really Difficult </div>
+      ) : (
+        <div> it's not really that difficult </div>
+      )}
     </div>
   );
 }
