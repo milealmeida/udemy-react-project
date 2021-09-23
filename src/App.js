@@ -1,18 +1,23 @@
+import { useState } from 'react';
 import './App.css';
-import Home from './Home';
-import About from './About';
 
 function App() {
-  const home = 'House';
-  const pi = 3.14;
 
-  const message = 'Welcome, this is About page.'
+  const [name, setName] = useState('Javascript Developer');
+  const [age, setAge] = useState(45);
+
+  const [isDifficult, setIsDifficult] = useState(false);
+
+  const [arrary, setArray] = useState(['1', '2', '3']);
+
+  const [objects, setObjects] = useState({ name: 'lion' }); 
 
   return (
     <div className="App">
-      Milena
-      <Home home={home} pi={pi}/>
-      <About message={message}/>
+      {name}
+      <div>{age}</div>
+
+      <button onClick={() => setName('React JS Developer')} >Change name</button>
     </div>
   );
 }
