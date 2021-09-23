@@ -7,6 +7,7 @@ function App() {
   const [age, setAge] = useState(45);
 
   const [isDifficult, setIsDifficult] = useState(false);
+  const [onlyTrue, setOnlyTrue] = useState(true);
 
   const [arrary, setArray] = useState(['1', '2', '3']);
 
@@ -32,6 +33,8 @@ function App() {
       ) : (
         <div> it's not really that difficult </div>
       )}
+
+      { onlyTrue && (<div> It is really true </div> ) }
     </div>
   );
 }
