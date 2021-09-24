@@ -1,28 +1,26 @@
-import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import About from './About';
 import './App.css';
+import Contact from './Contact';
+import Home from './Home';
 
 function App() {
 
-  const [message, setMessage] = useState('Hello');
-
-  useEffect(() => {
-    alert(message);
-  }, []);
-
-  useEffect(() => {
-    alert('Changed');
-  }, [message]);
 
   return (
-    <div className="App">
-
-      <input 
-        type="text" 
-        value={message} 
-        onChange={ e => setMessage(e.target.value) } 
-      />
-
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route >
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="/contact">
+          <Contact />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
