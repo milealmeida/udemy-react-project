@@ -2,7 +2,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import About from './About';
 import './App.css';
 import Contact from './Contact';
-import Home from './Home';
+// import Home from './Home';
+import Firestore from './Components/Firestore';
 
 function App() {
 
@@ -11,7 +12,7 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Firestore />
         </Route >
         <Route path="/about">
           <About />
