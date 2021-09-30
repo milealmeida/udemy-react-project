@@ -1,10 +1,8 @@
 import { db, auth, provider } from './Firebase';
-import { signInWithPopup } from 'firebase/auth';
-import { useState } from 'react';
-import { collection, doc, setDoc, getDocs  } from  'firebase/firestore';
+import { signInWithPopup, signOut  } from 'firebase/auth';
+import { doc, setDoc } from  'firebase/firestore';
 
 const Login = () => {
-  const [user, setUser] = useState();
 
     function signInWithGoogle(){
         signInWithPopup(auth, provider)
@@ -19,15 +17,18 @@ const Login = () => {
                 });
 
             }).catch((error) => {
-                console.log(error.message)
+                console.log(error.message);
             });
-        }
+    }
+
+    const firebaseLogout = () => {
+        signOut(auth);
+    }
 
     return (
         <div>
             <button onClick={signInWithGoogle}>Sign In With Google</button>
-
-            { user }
+            <button onClick={() => firebaseLogout()}>Logout</button>
         </div>
     );
 };
