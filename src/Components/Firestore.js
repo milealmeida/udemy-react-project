@@ -16,10 +16,9 @@ const Firestore = () => {
 
     const onSubmit = async () => {
 
-        const addData = await addDoc(collection(db, 'names'), {
+        await addDoc(collection(db, 'names'), {
             name: firestoreData,
           });
-
 
         setFirestoreData('');
     };
@@ -31,13 +30,10 @@ const Firestore = () => {
         const listNames = await getDocs(names);
 
         listNames.forEach((doc) => {
-            // console.log(doc.id, '=>', doc.data());
             nameArray.push(doc.data());
         });
 
         setNameData(nameArray);
-
-        console.log(nameData);
     };
 
     useEffect(() => {
